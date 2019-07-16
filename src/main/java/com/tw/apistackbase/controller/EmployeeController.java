@@ -1,6 +1,7 @@
 package com.tw.apistackbase.controller;
 
 import com.tw.apistackbase.model.Employee;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -13,6 +14,11 @@ public class EmployeeController {
     @GetMapping("/getAllEmployees")
     public List<Employee> getAllEmployee(){
         return employeeList;
+    }
+    @PostMapping("/addEmployee")
+    public ResponseEntity<String> addEmployee (Employee employee) {
+        employeeList.add(employee);
+        return ResponseEntity.ok("add OK");
     }
 
 
